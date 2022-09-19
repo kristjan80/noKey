@@ -1,0 +1,1 @@
+# Client view of the application
