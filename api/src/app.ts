@@ -1,26 +1,25 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-
-var indexRouter = require("./build/routes/index");
-var testAPIRouter = require("./build/routes/testYAPI");
-
-var app = express();
-var port = 12000;
+import express, {Request,Response} from 'express';
+import cors from 'cors';
+import compression from 'compression'
+//import { generateToken } from './api/utils/jwt.utils';
+import userRoutes from './api/routes/user.routes';
+import * as MySQLConnector from './utils/mysql.connector';
 
 
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+const app = express();
+const port = 3000;
+
+MySQLConnector.init();
+
+app.use(compression());
+
+app.use(cors());
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 
-app.use("/", indexRouter);
-app.use("/testAPI", testAPIRouter);
-
+app.use('/', userRoutes);
+  
 app.listen(port, () => {
-    // eslint-disable-next-line no-console
-    console.log(`App is running on port ${port}`);
+    console.log(`Example app listening at http://localhost:${port}`)
 });
