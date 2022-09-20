@@ -12,7 +12,7 @@ Compile the typescript code
 ```console
 foo@bar:~/nokey/api$ sudo npx tsc
 ```
-Import the database using the files in the **scripts** directory
+Import the database using the files in the **scripts** directory. Currently only MySQL is supported
 
 
 Run the service
