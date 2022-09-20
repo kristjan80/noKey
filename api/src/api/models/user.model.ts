@@ -5,10 +5,7 @@ export interface IUser{
     firstname:string,
     lastname:string,
     email:string,
-    password:string,
+    phash:string,
+    salt:string,
     createdon:Date
 }
-
-export interface IGetUserById extends Request <{id:IUser['id']}> {};
-export interface IGetAllUsers extends Request { };
-export interface IRemoveUserById extends Request <{id:IUser['id']}> {};

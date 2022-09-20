@@ -1,5 +1,5 @@
 import {Request,RequestHandler,Response} from 'express';
-import {IUser } from './../models/user.model';
+import {IUser} from './../models/user.model';
 import * as UserService from './../services/user.service';
 
 export const getAllUsers: RequestHandler = async(req:Request, res:Response) => {
@@ -30,7 +30,7 @@ export const getUserById: RequestHandler = async(req:Request, res:Response) => {
       }
 };
 
-export const removeUserById = async (req:Request, res:Response) => {
+export const removeUserById: RequestHandler = async (req:Request, res:Response) => {
     try {
         const result = await UserService.removeUserById(parseInt(req.params.id));
     
@@ -43,10 +43,28 @@ export const removeUserById = async (req:Request, res:Response) => {
       }
 }
 
-export const addUser = (req:Request, res:Response) => {
+export const createUser: RequestHandler = async (req:Request, res:Response) => {
+  try {
+    const result = await UserService.createUser(req.body);
 
+    res.status(200).json({result});
+  } catch (error) {
+    console.error('[user.controller][createUser][Error] ', typeof error === 'object' ? JSON.stringify(error) : error);
+    res.status(500).json({
+      message: 'There was an error while trying to delete the user'
+    });
+  }
 }
 
-export const updateUserById = (req:Request, res:Response) => {
+export const updateUserById:RequestHandler = async (req: Request, res: Response) => {
+  try {
+    const result = await UserService.updateUserById(req.body, parseInt(req.params.id));
 
+    res.status(200).json({ result });
+  } catch (error) {
+    console.error('[user.controller][updateUserById][Error] ', typeof error === 'object' ? JSON.stringify(error) : error);
+    res.status(500).json({
+      message: 'There was an error while trying to update the user'
+    });
+  }
 }
