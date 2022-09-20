@@ -28,3 +28,9 @@ GET - /api/users/all
 GET - /api/users/:id
 
 DELETE - /api/users/delete/:id
+
+PATCH(UPDATE) - /api/users/udpate/:id and **firstname** , **lastname** and **email** in form-encoded form
+
+POST(CREATE) -  /api/users/create and **firstname** , **lastname** , **email** , **password** and **hash** in form-encoded form
+
+Later on password will be encrypted in the backend
