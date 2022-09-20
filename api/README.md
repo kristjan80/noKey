@@ -5,9 +5,11 @@ Install all the dependencies
 foo@bar:~/nokey/api$ sudo npm install package.json
 ```
 Rename the .env.local file and add your database parameters
+#### NB! Make sure to user MySQL user with authenticon plugin 'mysql_native_password'
 ```console
 foo@bar:~/nokey/api$ sudo mv .env.local .env
 ```
+
 Compile the typescript code
 ```console
 foo@bar:~/nokey/api$ sudo npx tsc
