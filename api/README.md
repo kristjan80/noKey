@@ -5,9 +5,11 @@ Install all the dependencies
 foo@bar:~/nokey/api$ sudo npm install package.json
 ```
 Rename the .env.local file and add your database parameters
+#### NB! Make sure to user MySQL user with authenticon plugin 'mysql_native_password'
 ```console
 foo@bar:~/nokey/api$ sudo mv .env.local .env
 ```
+
 Compile the typescript code
 ```console
 foo@bar:~/nokey/api$ sudo npx tsc
@@ -26,3 +28,9 @@ GET - /api/users/all
 GET - /api/users/:id
 
 DELETE - /api/users/delete/:id
+
+PATCH(UPDATE) - /api/users/udpate/:id and **firstname** , **lastname** and **email** in form-encoded form
+
+POST(CREATE) -  /api/users/create and **firstname** , **lastname** , **email** , **password** and **hash** in form-encoded form
+
+Later on password will be encrypted in the backend
