@@ -9,6 +9,7 @@ import * as MySQLConnector from './utils/mysql.connector';
 const app = express();
 const port = 3000;
 
+
 MySQLConnector.init();
 
 app.use(compression());

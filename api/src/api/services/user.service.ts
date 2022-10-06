@@ -1,4 +1,3 @@
-import { Request, RequestHandler, Response } from 'express';
 import { execute } from '../../utils/mysql.connector';
 
 import {UserQueries} from '../queries/user.queries';

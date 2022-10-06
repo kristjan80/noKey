@@ -1,4 +1,3 @@
-import {Request} from 'express';
 
 export interface IUser{
     id:number,
@@ -7,5 +6,6 @@ export interface IUser{
     email:string,
     phash:string,
     salt:string,
-    createdon:Date
+    createdon:Date,
+    group:number
 }

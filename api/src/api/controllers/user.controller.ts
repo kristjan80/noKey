@@ -1,5 +1,4 @@
 import {Request,RequestHandler,Response} from 'express';
-import {IUser} from './../models/user.model';
 import * as UserService from './../services/user.service';
 
 export const getAllUsers: RequestHandler = async(req:Request, res:Response) => {

@@ -8,11 +8,13 @@ CREATE TABLE IF NOT EXISTS `nokey`.`rooms` (
   `description` TEXT NULL DEFAULT NULL,
   `addedon` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedon` TIMESTAMP NULL DEFAULT NULL,
-  `access_devices_id` INT NOT NULL,
+  `access_device` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_rooms_access_devices1_idx` (`access_devices_id` ASC) VISIBLE,
+  INDEX `fk_rooms_access_devices1_idx` (`access_device` ASC) VISIBLE,
   CONSTRAINT `fk_rooms_access_devices1`
-    FOREIGN KEY (`access_devices_id`)
-    REFERENCES `nokey`.`access_devices` (`id`))
+    FOREIGN KEY (`access_device`)
+    REFERENCES `nokey`.`access_devices` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
