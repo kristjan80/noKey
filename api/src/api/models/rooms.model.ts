@@ -3,5 +3,7 @@ export interface IRoom{
     code:string,
     location:string,
     description:string,
+    addedon:string,
+    updatedon:string,
     access_device:number
 }

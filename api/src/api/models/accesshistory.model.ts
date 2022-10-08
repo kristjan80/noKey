@@ -1,4 +1,5 @@
-export interface IDevice{
+export interface IACLHistory{
     id:number,
-    access:number
+    access:number,
+    createdon:string
 }
