@@ -7,10 +7,13 @@ import deviceRoutes from './api/routes/device.route';
 import roomRoutes from './api/routes/room.routes';
 import * as MySQLConnector from './utils/mysql.connector';
 
+//import { validateId } from './middleware/validator.middleware'; 
+
 
 const app = express();
 const port = 3000;
 
+app.set('trust proxy', true);
 
 MySQLConnector.init();
 
@@ -21,6 +24,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//app.use(validateId(req,res,next));
 app.use('/', userRoutes);
 app.use('/', deviceRoutes);
 app.use('/', roomRoutes);
