@@ -1,12 +1,12 @@
 import express, {Request,Response} from 'express';
 import { getAllUsers, getUserById, removeUserById, createUser, updateUserById } from '../controllers/user.controller';
-import { myLogger } from '../../middleware/logger.middleware';
+import { accessEventLogger } from '../../middleware/logger.middleware';
 import { userIdValidator, userUpdateValidator, userAddValidator} from '../../middleware/validator.middleware';
 
 const router = express.Router();
 
 // Middlewares for user route input validation
-router.use('/api/users/all', myLogger);
+router.use('/', accessEventLogger);
 router.route('/api/users/all').get(getAllUsers);
 
 // Middleware stacks. Firt validate then if input seems good pass data to controller for backend DB requests.
