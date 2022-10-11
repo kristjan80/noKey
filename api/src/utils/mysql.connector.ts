@@ -20,7 +20,7 @@ export const init = () => {
       database: dataSource.DB_DATABASE,
     });
 
-    console.debug('MySql Adapter Pool generated successfully');
+    console.log('MySql Adapter Pool generated successfully');
   } catch (error) {
     console.error('[mysql.connector][init][Error]: ', error);
     throw new Error('failed to initialized pool');
